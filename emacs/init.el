@@ -29,7 +29,7 @@
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 ;; Font settings
-(set-face-attribute 'default nil :font"Inconsolata Nerd Font" :height 130)
+(set-face-attribute 'default nil :font"Inconsolata Nerd Font" :height 120)
 
 
 ;; Initialize package sources
