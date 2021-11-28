@@ -1,4 +1,4 @@
-export PATH="$PATH:/home/arekkas/bin:/home/arekkas/scripts"
+export PATH="$PATH:$HOME/bin:$HOME/scripts:$HOME/.local/bin"
 XDG_DATA_DIRS=/usr/share/:/usr/local/share/:/var/lib/snapd/desktop
 
 # Created by newuser for 5.8
