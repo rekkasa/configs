@@ -177,6 +177,16 @@ keys = [
       lazy.spawn("rofi -modi drun,run -show drun -show-icons"),
       desc="Spawn a command using a prompt widget"
     ),
+    Key(
+      [mod], "F2", 
+      lazy.spawn("volume-control down"),
+      desc="Spawn a command using a prompt widget"
+    ),
+    Key(
+      [mod], "F3", 
+      lazy.spawn("volume-control up"),
+      desc="Spawn a command using a prompt widget"
+    ),
 ]
 
 groups = [Group(i) for i in "123456789"]
