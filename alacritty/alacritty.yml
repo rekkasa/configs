@@ -3,8 +3,8 @@
 #======================================================
 font:
   normal:
-    family: Inconsolata Nerd Font Mono
-  size: 11
+    family: DejaVu Sans Mono Nerd Font
+  size: 8
 
 #======================================================
 # Color configuration (One Dark)

@@ -10,5 +10,6 @@ emacs --daemon &
 # pulseaudio --start
 dunst &
 # syncthing &
-exec slstatus &
-exec dwm
+# exec slstatus &
+# exec dwm
+qtile start
