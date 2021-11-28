@@ -121,8 +121,8 @@ keys = [
     ),
     Key(
       [mod], "n", 
-      lazy.layout.normalize(), 
-      desc="Reset all window sizes"
+      lazy.next_layout(), 
+      desc="Toggle through layouts"
     ),
 
     # Toggle between split and unsplit sides of stack.
@@ -198,7 +198,7 @@ for i in groups:
 
 layout_basic={
         "border.width": 8,
-        "margin": 8,
+        "margin": 1,
         "border_focus": colors[6],
         "border_normal": colors[0]
         }
