@@ -147,7 +147,12 @@ keys = [
     Key(
       [mod, "shift"], "b", 
       lazy.spawn("background-change"), 
-      desc="Launch firefox"
+      desc="Change background wallpaper"
+    ),
+    Key(
+      [mod], "F1", 
+      lazy.spawn("change-keyboard-layout"), 
+      desc="Change keyboard language"
     ),
 
     # Toggle between different layouts as defined below
@@ -226,6 +231,112 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 
 screens = [
+    Screen(
+        top=bar.Bar(
+            [
+                widget.GroupBox(
+                    font="DejaVu Sans Mono Bold",
+                    fontsize=14,
+                    rounded=False,
+                    active=colors[2],
+                    inactive=colors[3],
+                    highlight_method="block",
+                    this_current_screen_border=colors[1]
+                ),
+                widget.Prompt(),
+                widget.WindowName(
+                    font="DejaVu Sans Mono Bold",
+                    fontsize=14
+                ),
+                widget.CPU(
+                    font="DejaVu Sans Mono Bold",
+                    fontsize=14,
+                    foreground=colors[2],
+                    format='CPU: {load_percent}%'
+                ),
+                widget.Sep(
+                    linewidth=0,
+                    padding=10
+                ),
+                widget.Memory(
+                    font="DejaVu Sans Mono Bold",
+                    fontsize=14,
+                    foreground=colors[5],
+                    format='RAM: {MemPercent}% [{MemUsed: .2f} {mm} ]',
+                    measure_mem='G'
+                ),
+                widget.Sep(
+                    linewidth=0,
+                    padding=8
+                ),
+                # widget.Battery(),
+                # widget.ThermalSensor(),
+                widget.Clock(
+                    font="DejaVu Sans Mono Bold",
+                    fontsize=14,
+                    foreground=colors[3],
+                    format='%Y-%m-%d %a %I:%M %p'
+                ),
+            ],
+            24,
+            background=colors[0],
+            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
+            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+        ),
+    ),
+    Screen(
+        top=bar.Bar(
+            [
+                widget.GroupBox(
+                    font="DejaVu Sans Mono Bold",
+                    fontsize=14,
+                    rounded=False,
+                    active=colors[2],
+                    inactive=colors[3],
+                    highlight_method="block",
+                    this_current_screen_border=colors[1]
+                ),
+                widget.Prompt(),
+                widget.WindowName(
+                    font="DejaVu Sans Mono Bold",
+                    fontsize=14
+                ),
+                widget.CPU(
+                    font="DejaVu Sans Mono Bold",
+                    fontsize=14,
+                    foreground=colors[2],
+                    format='CPU: {load_percent}%'
+                ),
+                widget.Sep(
+                    linewidth=0,
+                    padding=10
+                ),
+                widget.Memory(
+                    font="DejaVu Sans Mono Bold",
+                    fontsize=14,
+                    foreground=colors[5],
+                    format='RAM: {MemPercent}% [{MemUsed: .2f} {mm} ]',
+                    measure_mem='G'
+                ),
+                widget.Sep(
+                    linewidth=0,
+                    padding=8
+                ),
+                # widget.Battery(),
+                # widget.ThermalSensor(),
+                widget.Clock(
+                    font="DejaVu Sans Mono Bold",
+                    fontsize=14,
+                    foreground=colors[3],
+                    format='%Y-%m-%d %a %I:%M %p'
+                ),
+            ],
+            24,
+            background=colors[0],
+            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
+            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+        ),
+    ),
     Screen(
         top=bar.Bar(
             [
