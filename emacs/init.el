@@ -202,7 +202,7 @@
  '(jdee-db-spec-breakpoint-face-colors (cons "#f2f2f2" "#a5a4a5"))
  '(objed-cursor-color "#c82829")
  '(package-selected-packages
-   '(dired-sidebar markdown-mode highlight-indent-guides highlight-parentheses company ess org-bullets evil-collection evil general all-the-icons-dired doom-themes helpful which-key use-package rainbow-delimiters ivy-rich doom-modeline counsel command-log-mode))
+   '(treemacs-persp treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs projectile dired-sidebar markdown-mode highlight-indent-guides highlight-parentheses company ess org-bullets evil-collection evil general all-the-icons-dired doom-themes helpful which-key use-package rainbow-delimiters ivy-rich doom-modeline counsel command-log-mode))
  '(pdf-view-midnight-colors (cons "#4d4d4c" "#ffffff"))
  '(rustic-ansi-faces
    ["#ffffff" "#c82829" "#718c00" "#eab700" "#3e999f" "#c9b4cf" "#8abeb7" "#4d4d4c"])
@@ -303,3 +303,14 @@
   (setq dired-sidebar-theme 'vscode)
   (setq dired-sidebar-use-term-integration t)
   (setq dired-sidebar-use-custom-font t))
+
+
+(use-package projectile
+  :diminish projectile-mode
+  :config (projectile-mode)
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
+  :init
+  (when (file-directory-p "~/Documents/Projects")
+    (setq projectile-project-search-path '("~/Documents/Projects/")))
+  (setq projectile-switch-project-action #'projectile-dired))
