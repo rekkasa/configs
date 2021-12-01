@@ -192,9 +192,24 @@ keys = [
       lazy.spawn("volume-control up"),
       desc="Spawn a command using a prompt widget"
     ),
+    Key(
+      [mod], "e", 
+      lazy.spawn("emacsclient -c -a 'emacs'"),
+      desc="Spawn an emacs client"
+    ),
 ]
 
-groups = [Group(i) for i in "123456789"]
+# groups = [Group(i) for i in "123456789"]
+# groups = [Group(i) for i in "123456789"]
+groups = [
+    Group(name = "1", label = "📧"),
+    Group(name = "2", label = "💬"),
+    Group(name = "3", label = "🔐"),
+    Group(name = "4", label = "🖮"),
+    Group(name = "5", label = "🖳"),
+    Group(name = "6", label = "🌐")
+]
+
 
 for i in groups:
     keys.extend([
@@ -230,6 +245,9 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+# ----------------------------------
+# Need to turn this into a function
+# ----------------------------------
 screens = [
     Screen(
         top=bar.Bar(
@@ -269,7 +287,16 @@ screens = [
                     linewidth=0,
                     padding=8
                 ),
-                # widget.Battery(),
+                widget.Battery(
+                    font="DejaVu Sans Mono Bold",
+                    fontsize=14,
+                    foreground=colors[4],
+                    format='Battery: {percent:2.0%} [ {char} ]',
+                    discharge_char="discharing",
+                    charge_char = "charging",
+                    update_interval = 60,
+                    hide_threshold = 0.6
+                ),
                 # widget.ThermalSensor(),
                 widget.Clock(
                     font="DejaVu Sans Mono Bold",
@@ -322,7 +349,16 @@ screens = [
                     linewidth=0,
                     padding=8
                 ),
-                # widget.Battery(),
+                widget.Battery(
+                    font="DejaVu Sans Mono Bold",
+                    fontsize=14,
+                    foreground=colors[4],
+                    format='Battery: {percent:2.0%} [ {char} ]',
+                    discharge_char="discharing",
+                    charge_char = "charging",
+                    update_interval = 60,
+                    hide_threshold = 0.6
+                ),
                 # widget.ThermalSensor(),
                 widget.Clock(
                     font="DejaVu Sans Mono Bold",
@@ -375,7 +411,16 @@ screens = [
                     linewidth=0,
                     padding=8
                 ),
-                # widget.Battery(),
+                widget.Battery(
+                    font="DejaVu Sans Mono Bold",
+                    fontsize=14,
+                    foreground=colors[4],
+                    format='Battery: {percent:2.0%} [ {char} ]',
+                    discharge_char="discharing",
+                    charge_char = "charging",
+                    update_interval = 60,
+                    hide_threshold = 0.6
+                ),
                 # widget.ThermalSensor(),
                 widget.Clock(
                     font="DejaVu Sans Mono Bold",
