@@ -197,6 +197,16 @@ keys = [
       lazy.spawn("emacsclient -c -a 'emacs'"),
       desc="Spawn an emacs client"
     ),
+    Key(
+      [mod], "Left", 
+      lazy.prev_screen(),
+      desc="Spawn an emacs client"
+    ),
+    Key(
+      [mod], "Right", 
+      lazy.next_screen(),
+      desc="Spawn an emacs client"
+    ),
 ]
 
 # groups = [Group(i) for i in "123456789"]
@@ -482,7 +492,6 @@ def move_program_to_group(window):
         "brave-browser": '8'
     }
     wm_class = window.window.get_wm_class()[0] 
-    if wm_class:
-        window.togroup(window_groups[wm_class])
+    window.togroup(window_groups[wm_class])
 
 wmname = "LG3D"
