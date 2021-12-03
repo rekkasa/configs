@@ -25,7 +25,7 @@
 # SOFTWARE.
 
 from typing import List  # noqa: F401
-
+from libqtile import hook
 from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
@@ -202,14 +202,14 @@ keys = [
 # groups = [Group(i) for i in "123456789"]
 # groups = [Group(i) for i in "123456789"]
 groups = [
-    Group(name = "1", label = "📧"),
-    Group(name = "2", label = "💬"),
-    Group(name = "3", label = "🔐"),
-    Group(name = "4", label = "{}"),
-    Group(name = "5", label = "🖮"),
-    Group(name = "6", label = "🗋"),
-    Group(name = "7", label = "🖳"),
-    Group(name = "8", label = "🌐")
+    Group(name = "1", label = ""),
+    Group(name = "2", label = ""),
+    Group(name = "3", label = ""),
+    Group(name = "4", label = ""),
+    Group(name = "5", label = ""),
+    Group(name = "6", label = ""),
+    Group(name = "7", label = ""),
+    Group(name = "8", label = "")
 ]
 
 
@@ -255,7 +255,7 @@ screens = [
         top=bar.Bar(
             [
                 widget.GroupBox(
-                    font="DejaVu Sans Mono Bold",
+                    font="FontAwesome",
                     fontsize=14,
                     rounded=False,
                     active=colors[2],
@@ -317,7 +317,7 @@ screens = [
         top=bar.Bar(
             [
                 widget.GroupBox(
-                    font="DejaVu Sans Mono Bold",
+                    font="FontAwesome",
                     fontsize=14,
                     rounded=False,
                     active=colors[2],
@@ -379,7 +379,7 @@ screens = [
         top=bar.Bar(
             [
                 widget.GroupBox(
-                    font="DejaVu Sans Mono Bold",
+                    font="FontAwesome",
                     fontsize=14,
                     rounded=False,
                     active=colors[2],
@@ -471,12 +471,18 @@ reconfigure_screens = True
 # focus, should we respect this or not?
 auto_minimize = True
 
-# XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
-# string besides java UI toolkits; you can see several discussions on the
-# mailing lists, GitHub issues, and other WM documentation that suggest setting
-# this string if your java app doesn't work correctly. We may as well just lie
-# and say that we're a working one by default.
-#
-# We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
-# java that happens to be on java's whitelist.
+@hook.subscribe.client_new
+def move_program_to_group(window):
+    window_groups = {
+        "Mail": '1',
+        "microsoft teams - preview": '2',
+        "keepassxc": '3',
+        "emacs": '5',
+        "qpdfview": '6',
+        "brave-browser": '8'
+    }
+    wm_class = window.window.get_wm_class()[0] 
+    if wm_class:
+        window.togroup(window_groups[wm_class])
+
 wmname = "LG3D"
