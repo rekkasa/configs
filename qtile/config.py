@@ -68,11 +68,6 @@ keys = [
       lazy.layout.up(), 
       desc="Move focus up"
     ),
-    Key(
-      [mod, "shift"], "n", 
-      lazy.layout.next(),
-      desc="Move window focus to other window"
-    ),
 
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
@@ -198,14 +193,14 @@ keys = [
       desc="Spawn an emacs client"
     ),
     Key(
-      [mod], "Left", 
-      lazy.prev_screen(),
-      desc="Spawn an emacs client"
+      [mod, "shift"], "k", 
+      lazy.next_screen(),
+      desc="Switch to next screen"
     ),
     Key(
-      [mod], "Right", 
-      lazy.next_screen(),
-      desc="Spawn an emacs client"
+      [mod, "shift"], "j", 
+      lazy.prev_screen(),
+      desc="Switch to previous screen"
     ),
 ]
 
