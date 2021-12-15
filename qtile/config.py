@@ -236,7 +236,7 @@ for i in groups:
 layout_basic={
         "border.width": 8,
         "margin": 1,
-        "border_focus": colors[6],
+        "border_focus": colors[7],
         "border_normal": colors[0]
         }
 
@@ -481,6 +481,7 @@ def move_program_to_group(window):
     window_groups = {
         "Mail": '1',
         "microsoft teams - preview": '2',
+        "skype": '2',
         "keepassxc": '3',
         "emacs": '5',
         "qpdfview": '6',

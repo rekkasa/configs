@@ -405,11 +405,11 @@
 #    summary = "foobar"
 #    skip_display = yes
 
-#[signed_on]
-#    appname = Pidgin
-#    summary = "*signed on*"
-#    urgency = low
-#
+[signed_on]
+    appname = Skype
+    summary = "*signed on*"
+    urgency = low
+
 #[signed_off]
 #    appname = Pidgin
 #    summary = *signed off*
