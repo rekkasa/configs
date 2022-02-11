@@ -29,7 +29,7 @@
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 ;; Font settings
-(set-face-attribute 'default nil :font"DejaVu Sans Mono Nerd Font" :height 120)
+(set-face-attribute 'default nil :font"DejaVu Sans Mono Nerd Font" :height 100)
 
 
 ;; Initialize package sources

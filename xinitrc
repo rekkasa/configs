@@ -2,7 +2,7 @@
 xrandr --output eDP-1 --mode 1920x1080 
 # picom --experimental-backends --config $HOME/.config/picom/picom.conf &
 pcmanfm -d &
-background-loop &
+# background-loop &
 feh --bg-scale $HOME/wallpaper &
 flameshot &
 xrandr --auto --output HDMI-1 --right-of DP-2 &
