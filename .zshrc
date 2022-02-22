@@ -21,7 +21,7 @@ _comp_options+=(globdots)		# Include hidden files.
 
 #### ALIASES ####
 
-alias ls="exa -alh --icons --group-directories-first"
+alias l="exa -alh --icons --group-directories-first"
 alias f="feh -F"
 alias p="qpdfview"
 
@@ -41,6 +41,7 @@ alias legend="cd ~/Documents/Projects/arekkas_LegendHte_XXXX_2021"
 alias ter="cd ~/Documents/Projects/arekkas_TerVsBis_XXXX_2021"
 alias rr="open *.Rproj"
 alias f="feh -F"
+alias rb="R CMD INSTALL --preclean --no-multiarch --with-keep.source"
 
 ##### END ALIASES ####
 
