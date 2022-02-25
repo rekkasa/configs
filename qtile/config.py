@@ -188,6 +188,16 @@ keys = [
       desc="Spawn a command using a prompt widget"
     ),
     Key(
+      [mod, "shift"], "t", 
+      lazy.spawn("change-package-to-build"),
+      desc="Focus an R-package to build from source"
+    ),
+    Key(
+      [mod, "shift"], "b", 
+      lazy.spawn("build-r-package"),
+      desc="Focus an R-package to build from source"
+    ),
+    Key(
       [mod], "e", 
       lazy.spawn("emacsclient -c -a 'emacs'"),
       desc="Spawn an emacs client"
