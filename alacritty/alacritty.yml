@@ -4,7 +4,7 @@
 font:
   normal:
     family: DejaVu Sans Mono Nerd Font
-  size: 7
+  size: 8
 schemes:
   pencil_dark: &pencil_dark
     primary:
