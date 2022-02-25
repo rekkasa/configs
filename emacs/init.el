@@ -242,7 +242,6 @@
 (use-package ess
   :ensure t
   :config
-  (setq ess-style 'Rstudio)
   (setq ess-R-font-lock-keywords
       '((ess-R-fl-keyword:keywords   . t)
         (ess-R-fl-keyword:constants  . t)
