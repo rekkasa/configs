@@ -140,7 +140,7 @@ keys = [
       desc="Launch firefox"
     ),
     Key(
-      [mod, "shift"], "b", 
+      [mod], "b", 
       lazy.spawn("background-change"), 
       desc="Change background wallpaper"
     ),
@@ -195,6 +195,11 @@ keys = [
     Key(
       [mod, "shift"], "b", 
       lazy.spawn("build-r-package"),
+      desc="Focus an R-package to build from source"
+    ),
+    Key(
+      [mod, "shift"], "p", 
+      lazy.spawn("flameshot gui"),
       desc="Focus an R-package to build from source"
     ),
     Key(
@@ -495,6 +500,7 @@ def move_program_to_group(window):
         "keepassxc": '3',
         "emacs": '5',
         "qpdfview": '6',
+        "workspacesclient": '7',
         "brave-browser": '8'
     }
     wm_class = window.window.get_wm_class()[0] 
