@@ -251,8 +251,8 @@ for i in groups:
 layout_basic={
         "border.width": 8,
         "margin": 1,
-        "border_focus": colors[7],
-        "border_normal": colors[0]
+        "border_focus": colors[0],
+        "border_normal": "#c7c7c7"
         }
 
 layouts = [
@@ -277,21 +277,23 @@ screens = [
                 widget.GroupBox(
                     font="FontAwesome",
                     fontsize=14,
-                    rounded=False,
-                    active=colors[2],
-                    inactive=colors[3],
-                    highlight_method="block",
-                    this_current_screen_border=colors[1]
+                    hide_unused=True,
+                    active=colors[0],
+                    inactive=colors[0],
+                    highlight_method="text",
+                    highlight_color="#4184ab",
+                    other_current_screen_border=colors[0]
                 ),
                 widget.Prompt(),
                 widget.WindowName(
                     font="DejaVu Sans Mono Bold",
-                    fontsize=14
+                    fontsize=14,
+                    foreground = colors[0]
                 ),
                 widget.CPU(
                     font="DejaVu Sans Mono Bold",
                     fontsize=14,
-                    foreground=colors[2],
+                    foreground=colors[0],
                     format='CPU: {load_percent}%'
                 ),
                 widget.Sep(
@@ -301,7 +303,7 @@ screens = [
                 widget.Memory(
                     font="DejaVu Sans Mono Bold",
                     fontsize=14,
-                    foreground=colors[5],
+                    foreground=colors[0],
                     format='RAM: {MemPercent}% [{MemUsed: .2f} {mm} ]',
                     measure_mem='G'
                 ),
@@ -312,7 +314,7 @@ screens = [
                 widget.Battery(
                     font="DejaVu Sans Mono Bold",
                     fontsize=14,
-                    foreground=colors[4],
+                    foreground=colors[2],
                     format='Battery: {percent:2.0%} [ {char} ]',
                     discharge_char="discharing",
                     charge_char = "charging",
@@ -323,12 +325,13 @@ screens = [
                 widget.Clock(
                     font="DejaVu Sans Mono Bold",
                     fontsize=14,
-                    foreground=colors[3],
+                    foreground=colors[0],
                     format='%Y-%m-%d %a %I:%M %p'
                 ),
             ],
             24,
-            background=colors[0],
+            background=colors[1],
+            border_width=[1, 0, 1, 0],  # Draw top and bottom borders
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
@@ -339,21 +342,23 @@ screens = [
                 widget.GroupBox(
                     font="FontAwesome",
                     fontsize=14,
-                    rounded=False,
-                    active=colors[2],
-                    inactive=colors[3],
-                    highlight_method="block",
-                    this_current_screen_border=colors[1]
+                    hide_unused=True,
+                    active=colors[0],
+                    inactive=colors[0],
+                    highlight_method="text",
+                    highlight_color="#4184ab",
+                    other_current_screen_border=colors[0]
                 ),
                 widget.Prompt(),
                 widget.WindowName(
                     font="DejaVu Sans Mono Bold",
-                    fontsize=14
+                    fontsize=14,
+                    foreground = colors[0]
                 ),
                 widget.CPU(
                     font="DejaVu Sans Mono Bold",
                     fontsize=14,
-                    foreground=colors[2],
+                    foreground=colors[0],
                     format='CPU: {load_percent}%'
                 ),
                 widget.Sep(
@@ -363,7 +368,7 @@ screens = [
                 widget.Memory(
                     font="DejaVu Sans Mono Bold",
                     fontsize=14,
-                    foreground=colors[5],
+                    foreground=colors[0],
                     format='RAM: {MemPercent}% [{MemUsed: .2f} {mm} ]',
                     measure_mem='G'
                 ),
@@ -374,69 +379,7 @@ screens = [
                 widget.Battery(
                     font="DejaVu Sans Mono Bold",
                     fontsize=14,
-                    foreground=colors[4],
-                    format='Battery: {percent:2.0%} [ {char} ]',
-                    discharge_char="discharing",
-                    charge_char = "charging",
-                    update_interval = 60,
-                    hide_threshold = 0.6
-                ),
-                # widget.ThermalSensor(),
-                widget.Clock(
-                    font="DejaVu Sans Mono Bold",
-                    fontsize=14,
-                    foreground=colors[3],
-                    format='%Y-%m-%d %a %I:%M %p'
-                ),
-            ],
-            24,
-            background=colors[0],
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
-        ),
-    ),
-    Screen(
-        top=bar.Bar(
-            [
-                widget.GroupBox(
-                    font="FontAwesome",
-                    fontsize=14,
-                    rounded=False,
-                    active=colors[2],
-                    inactive=colors[3],
-                    highlight_method="block",
-                    this_current_screen_border=colors[1]
-                ),
-                widget.Prompt(),
-                widget.WindowName(
-                    font="DejaVu Sans Mono Bold",
-                    fontsize=14
-                ),
-                widget.CPU(
-                    font="DejaVu Sans Mono Bold",
-                    fontsize=14,
                     foreground=colors[2],
-                    format='CPU: {load_percent}%'
-                ),
-                widget.Sep(
-                    linewidth=0,
-                    padding=10
-                ),
-                widget.Memory(
-                    font="DejaVu Sans Mono Bold",
-                    fontsize=14,
-                    foreground=colors[5],
-                    format='RAM: {MemPercent}% [{MemUsed: .2f} {mm} ]',
-                    measure_mem='G'
-                ),
-                widget.Sep(
-                    linewidth=0,
-                    padding=8
-                ),
-                widget.Battery(
-                    font="DejaVu Sans Mono Bold",
-                    fontsize=14,
-                    foreground=colors[4],
                     format='Battery: {percent:2.0%} [ {char} ]',
                     discharge_char="discharing",
                     charge_char = "charging",
@@ -447,16 +390,17 @@ screens = [
                 widget.Clock(
                     font="DejaVu Sans Mono Bold",
                     fontsize=14,
-                    foreground=colors[3],
+                    foreground=colors[0],
                     format='%Y-%m-%d %a %I:%M %p'
                 ),
             ],
             24,
-            background=colors[0],
+            background=colors[1],
+            border_width=[1, 0, 1, 0],  # Draw top and bottom borders
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
-    ),
+    )
 ]
 
 # Drag floating layouts.

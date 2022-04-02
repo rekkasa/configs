@@ -24,6 +24,10 @@ _comp_options+=(globdots)		# Include hidden files.
 alias l="exa -alh --icons --group-directories-first"
 alias f="feh -F"
 alias p="qpdfview"
+alias rr="open *.Rproj"
+alias f="feh -F"
+alias rb="R CMD INSTALL --preclean --no-multiarch --with-keep.source"
+alias cat="batcat"
 
 # ---- Git ----
 alias gg="git status --short"
@@ -33,15 +37,13 @@ alias gc="git commit"
 alias gcm="git commit -m"
 alias gp="git push"
 alias gpo="git push origin"
-# ---- End git ----
 
+# ---- Projects ----
 alias fr="cd ~/Documents/Projects/arekkas_HteFramework_XXXX_2021"
 alias sim="cd ~/Documents/Projects/arekkas_HteSimulation_XXXX_2021"
 alias legend="cd ~/Documents/Projects/arekkas_LegendHte_XXXX_2021"
 alias ter="cd ~/Documents/Projects/arekkas_TerVsBis_XXXX_2021"
-alias rr="open *.Rproj"
-alias f="feh -F"
-alias rb="R CMD INSTALL --preclean --no-multiarch --with-keep.source"
+alias obs="cd ~/Documents/Projects/HteSimulationObservational_SETUP"
 
 ##### END ALIASES ####
 
