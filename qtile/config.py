@@ -190,7 +190,7 @@ keys = [
     Key(
       [mod, "shift"], "t", 
       lazy.spawn("change-package-to-build"),
-      desc="Focus an R-package to build from source"
+        desc="Focus an R-package to build from source"
     ),
     Key(
       [mod, "shift"], "b", 
@@ -215,6 +215,11 @@ keys = [
     Key(
       [mod, "shift"], "j", 
       lazy.prev_screen(),
+      desc="Switch to previous screen"
+    ),
+    Key(
+      [mod], "g", 
+      lazy.spawn("google-search"),
       desc="Switch to previous screen"
     ),
 ]
@@ -400,6 +405,71 @@ screens = [
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
+    ),
+    Screen(
+        top=bar.Bar(
+            [
+                widget.GroupBox(
+                    font="FontAwesome",
+                    fontsize=14,
+                    hide_unused=True,
+                    active=colors[0],
+                    inactive=colors[0],
+                    highlight_method="text",
+                    highlight_color="#4184ab",
+                    other_current_screen_border=colors[0]
+                ),
+                widget.Prompt(),
+                widget.WindowName(
+                    font="DejaVu Sans Mono Bold",
+                    fontsize=14,
+                    foreground = colors[0]
+                ),
+                widget.CPU(
+                    font="DejaVu Sans Mono Bold",
+                    fontsize=14,
+                    foreground=colors[0],
+                    format='CPU: {load_percent}%'
+                ),
+                widget.Sep(
+                    linewidth=0,
+                    padding=10
+                ),
+                widget.Memory(
+                    font="DejaVu Sans Mono Bold",
+                    fontsize=14,
+                    foreground=colors[0],
+                    format='RAM: {MemPercent}% [{MemUsed: .2f} {mm} ]',
+                    measure_mem='G'
+                ),
+                widget.Sep(
+                    linewidth=0,
+                    padding=8
+                ),
+                widget.Battery(
+                    font="DejaVu Sans Mono Bold",
+                    fontsize=14,
+                    foreground=colors[2],
+                    format='Battery: {percent:2.0%} [ {char} ]',
+                    discharge_char="discharing",
+                    charge_char = "charging",
+                    update_interval = 60,
+                    hide_threshold = 0.6
+                ),
+                # widget.ThermalSensor(),
+                widget.Clock(
+                    font="DejaVu Sans Mono Bold",
+                    fontsize=14,
+                    foreground=colors[0],
+                    format='%Y-%m-%d %a %I:%M %p'
+                ),
+            ],
+            24,
+            background=colors[1],
+            border_width=[1, 0, 1, 0],  # Draw top and bottom borders
+            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
+            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+        ),
     )
 ]
 
@@ -445,6 +515,7 @@ def move_program_to_group(window):
         "keepassxc": '3',
         "emacs": '5',
         "qpdfview": '6',
+        "libreoffice": '6',
         "workspacesclient": '7',
         "brave-browser": '8'
     }

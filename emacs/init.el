@@ -31,7 +31,7 @@
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 ;; Font settings
-(set-face-attribute 'default nil :font"DejaVu Sans Mono Nerd Font" :height 100)
+(set-face-attribute 'default nil :font"DejaVu Sans Mono Nerd Font" :height 80)
 
 
 ;; Initialize package sources
@@ -316,3 +316,9 @@
   (when (file-directory-p "~/Documents/Projects")
     (setq projectile-project-search-path '("~/Documents/Projects/")))
   (setq projectile-switch-project-action #'projectile-dired))
+
+
+(global-set-key (kbd "<C-up>") 'shrink-window)
+(global-set-key (kbd "<C-down>") 'enlarge-window)
+(global-set-key (kbd "<C-left>") 'shrink-window-horizontally)
+(global-set-key (kbd "<C-right>") 'enlarge-window-horizontally)

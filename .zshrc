@@ -1,4 +1,5 @@
 export PATH="$PATH:$HOME/bin:$HOME/scripts:$HOME/.local/bin"
+export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
 XDG_DATA_DIRS=/usr/share/:/usr/local/share/:/var/lib/snapd/desktop
 
 # Created by newuser for 5.8
@@ -27,7 +28,8 @@ alias p="qpdfview"
 alias rr="open *.Rproj"
 alias f="feh -F"
 alias rb="R CMD INSTALL --preclean --no-multiarch --with-keep.source"
-alias cat="batcat"
+alias cat="batcat --theme='OneHalfLight'"
+alias v="nvim"
 
 # ---- Git ----
 alias gg="git status --short"
@@ -44,6 +46,7 @@ alias sim="cd ~/Documents/Projects/arekkas_HteSimulation_XXXX_2021"
 alias legend="cd ~/Documents/Projects/arekkas_LegendHte_XXXX_2021"
 alias ter="cd ~/Documents/Projects/arekkas_TerVsBis_XXXX_2021"
 alias obs="cd ~/Documents/Projects/HteSimulationObservational_SETUP"
+alias tt="killall teams && teams"
 
 ##### END ALIASES ####
 

@@ -13,6 +13,7 @@ Plug 'preservim/nerdtree'
 Plug 'Raimondi/delimitMate'
 Plug 'sirver/UltiSnips'
 Plug 'ncm2/ncm2-ultisnips'
+Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
 
 " Optional: better Rnoweb support (LaTeX completion)
 Plug 'lervag/vimtex'
