@@ -256,6 +256,40 @@
         (ess-fl-keyword:=)
         (ess-R-fl-keyword:F&T))))
 
+(setq ess-use-flymake nil)
+(use-package flycheck
+  :ensure t
+  :init
+  (global-flycheck-mode t))
+
+;; Open Rdired buffer with F9:
+(add-hook 'ess-r-mode-hook
+	  '(lambda ()
+	     (local-set-key (kbd "<f9>") #'ess-rdired)))
+;; Close Rdired buffer with F9 as well:
+(add-hook 'ess-rdired-mode-hook
+	  '(lambda ()
+	     (local-set-key (kbd "<f9>") #'kill-buffer-and-window)))
+
+(setq display-buffer-alist
+      '(("*R Dired"
+	 (display-buffer-reuse-window display-buffer-at-bottom)
+	 (window-width . 0.5)
+	 (window-height . 0.25)
+	 (reusable-frames . nil))
+	("*R"
+	 (display-buffer-reuse-window display-buffer-in-side-window)
+	 (side . right)
+	 (slot . -1)
+	 (window-width . 0.5)
+	 (reusable-frames . nil))
+	("*Help"
+	 (display-buffer-reuse-window display-buffer-in-side-window)
+	 (side . right)
+	 (slot . 1)
+	 (window-width . 0.5)
+	 (reusable-frames . nil))))
+
 (use-package company
   :ensure t
   :config
