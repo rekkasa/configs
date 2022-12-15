@@ -180,12 +180,12 @@ keys = [
     Key(
       [mod], "F2", 
       lazy.spawn("volume-control down"),
-      desc="Spawn a command using a prompt widget"
+      desc="Lower volume"
     ),
     Key(
       [mod], "F3", 
       lazy.spawn("volume-control up"),
-      desc="Spawn a command using a prompt widget"
+      desc="Increase volume"
     ),
     Key(
       [mod, "shift"], "t", 
@@ -208,19 +208,39 @@ keys = [
       desc="Spawn an emacs client"
     ),
     Key(
-      [mod, "shift"], "k", 
-      lazy.next_screen(),
+      [mod, "shift"], "l", 
+      lazy.prev_screen(),
       desc="Switch to next screen"
     ),
     Key(
-      [mod, "shift"], "j", 
-      lazy.prev_screen(),
+      [mod, "shift"], "h", 
+      lazy.next_screen(),
       desc="Switch to previous screen"
     ),
     Key(
       [mod], "g", 
       lazy.spawn("google-search"),
       desc="Switch to previous screen"
+    ),
+    Key(
+      [mod], "u", 
+      lazy.spawn("random-unsplash"),
+      desc="Download random unsplash image and set as background"
+    ),
+    Key(
+      [mod, "shift"], "w", 
+      lazy.spawn("set-work-screens"),
+      desc="Set the screen arrangement in the office"
+    ),
+    Key(
+      [mod, "shift"], "s", 
+      lazy.spawn("background-set"),
+      desc="Set the desktop background picture"
+    ),
+    Key(
+      [mod, "shift"], "F2", 
+      lazy.spawn("killall brave"),
+      desc="Closes brave browser"
     ),
 ]
 
@@ -234,7 +254,8 @@ groups = [
     Group(name = "5", label = ""),
     Group(name = "6", label = ""),
     Group(name = "7", label = ""),
-    Group(name = "8", label = "")
+    Group(name = "8", label = ""),
+    Group(name = "9", label = ""),
 ]
 
 
