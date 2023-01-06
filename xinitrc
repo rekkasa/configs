@@ -7,10 +7,11 @@ pcmanfm -d &
 feh --bg-scale $HOME/wallpaper &
 flameshot &
 xrandr --auto --output HDMI-1 --right-of DP-2 &
-emacs --daemon &
+# emacs --daemon &
 # pulseaudio --start
 dunst &
 # syncthing &
 # exec slstatus &
 # exec dwm
 qtile start
+# exec dwm

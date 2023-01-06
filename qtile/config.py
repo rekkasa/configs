@@ -27,7 +27,7 @@
 from typing import List  # noqa: F401
 from libqtile import hook
 from libqtile import bar, layout, widget
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
@@ -161,7 +161,6 @@ keys = [
       lazy.window.kill(), 
       desc="Kill focused window"
     ),
-
     Key(
       [mod, "control"], "r", 
       lazy.reload_config(), 
@@ -242,6 +241,11 @@ keys = [
       lazy.spawn("killall brave"),
       desc="Closes brave browser"
     ),
+    Key(
+      [mod], "x", 
+      lazy.spawn("betterlockscreen -l blur"),
+      desc="locks screen"
+    ),
 ]
 
 # groups = [Group(i) for i in "123456789"]
@@ -258,6 +262,17 @@ groups = [
     Group(name = "9", label = ""),
 ]
 
+# Scratchpad
+# groups.append(ScratchPad('scratchpad', [
+#     DropDown('term', terminal, width=0.4, height=0.5, x=0.3, y=0.2)
+# ]))
+# 
+# keys.extend([
+#     Key(
+#         [mod], "s",
+#         lazy.group['scratchpad'].dropdown_toggle('term')
+#     ),
+# ])
 
 for i in groups:
     keys.extend([
