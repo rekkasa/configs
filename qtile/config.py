@@ -246,6 +246,11 @@ keys = [
       lazy.spawn("betterlockscreen -l blur"),
       desc="locks screen"
     ),
+    Key(
+      [mod], "t", 
+      lazy.spawn("gtk-launch brave-cifhbcnohmdccbgoicgdjpfamggdegmo-Default.desktop"),
+      desc="Launches MS Teams"
+    ),
 ]
 
 # groups = [Group(i) for i in "123456789"]
@@ -259,7 +264,7 @@ groups = [
     Group(name = "6", label = ""),
     Group(name = "7", label = ""),
     Group(name = "8", label = ""),
-    Group(name = "9", label = ""),
+    Group(name = "9", label = ""),
 ]
 
 # Scratchpad
@@ -359,8 +364,8 @@ screens = [
                     format='Battery: {percent:2.0%} [ {char} ]',
                     discharge_char="discharing",
                     charge_char = "charging",
-                    update_interval = 60,
-                    hide_threshold = 0.6
+                    update_interval = 10,
+                    hide_threshold = 1.0
                 ),
                 # widget.ThermalSensor(),
                 widget.Clock(
@@ -424,8 +429,8 @@ screens = [
                     format='Battery: {percent:2.0%} [ {char} ]',
                     discharge_char="discharing",
                     charge_char = "charging",
-                    update_interval = 60,
-                    hide_threshold = 0.6
+                    update_interval = 10,
+                    hide_threshold = 0.1
                 ),
                 # widget.ThermalSensor(),
                 widget.Clock(
@@ -489,8 +494,8 @@ screens = [
                     format='Battery: {percent:2.0%} [ {char} ]',
                     discharge_char="discharing",
                     charge_char = "charging",
-                    update_interval = 60,
-                    hide_threshold = 0.6
+                    update_interval = 10,
+                    hide_threshold = 0.1
                 ),
                 # widget.ThermalSensor(),
                 widget.Clock(

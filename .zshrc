@@ -35,10 +35,11 @@ alias v="nvim"
 alias gg="git status --short"
 alias ga="git add"
 alias gaa="git add ."
-alias gc="git commit"
 alias gcm="git commit -m"
 alias gp="git push"
 alias gpo="git push origin"
+alias guo="git pull origin"
+alias gco="git checkout"
 
 # ---- Projects ----
 alias fr="cd ~/Documents/Projects/arekkas_HteFramework_XXXX_2021"
