@@ -251,6 +251,11 @@ keys = [
       lazy.spawn("gtk-launch brave-cifhbcnohmdccbgoicgdjpfamggdegmo-Default.desktop"),
       desc="Launches MS Teams"
     ),
+    Key(
+      [mod, "control"], "t", 
+      lazy.spawn("make-thesis"),
+      desc="Build PhD thesis"
+    ),
 ]
 
 # groups = [Group(i) for i in "123456789"]
@@ -360,7 +365,7 @@ screens = [
                 widget.Battery(
                     font="DejaVu Sans Mono Bold",
                     fontsize=14,
-                    foreground=colors[2],
+                    foreground=colors[0],
                     format='Battery: {percent:2.0%} [ {char} ]',
                     discharge_char="discharing",
                     charge_char = "charging",

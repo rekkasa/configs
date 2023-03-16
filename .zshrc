@@ -1,4 +1,4 @@
-export PATH="$PATH:$HOME/bin:$HOME/scripts:$HOME/.local/bin"
+export PATH="$PATH:$HOME/bin:$HOME/scripts:$HOME/.local/bin:/usr/sbin"
 export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
 XDG_DATA_DIRS=/usr/share/:/usr/local/share/:/var/lib/snapd/desktop
 
@@ -40,6 +40,7 @@ alias gp="git push"
 alias gpo="git push origin"
 alias guo="git pull origin"
 alias gco="git checkout"
+alias gl="git log -n 5 --oneline"
 
 # ---- Projects ----
 alias fr="cd ~/Documents/Projects/arekkas_HteFramework_XXXX_2021"
