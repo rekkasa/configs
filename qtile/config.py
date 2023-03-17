@@ -136,8 +136,8 @@ keys = [
     ),
     Key(
       [mod], "w", 
-      lazy.spawn("brave-browser"), 
-      desc="Launch firefox"
+      lazy.spawn("brave"), 
+      desc="Launch Brave browser"
     ),
     Key(
       [mod], "b", 
@@ -173,7 +173,7 @@ keys = [
     ),
     Key(
       [mod], "space", 
-      lazy.spawn("rofi -modi drun,run -show drun -show-icons"),
+      lazy.spawn("/home/arekkas/.config/rofi/launchers/type-1/launcher.sh"),
       desc="Spawn a command using a prompt widget"
     ),
     Key(

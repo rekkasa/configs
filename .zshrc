@@ -30,6 +30,7 @@ alias f="feh -F"
 alias rb="R CMD INSTALL --preclean --no-multiarch --with-keep.source"
 alias cat="batcat --theme='OneHalfLight'"
 alias v="nvim"
+alias sq="source /home/arekkas/src/qtile/venv/bin/activate && startx"
 
 # ---- Git ----
 alias gg="git status --short"

@@ -11,4 +11,4 @@ error_symbol = "[!➜](bold red)"     # The "success_symbol" segment is being se
 disabled = false
 
 [rlang]
-symbol = "Ꭱ "
+symbol = "𝖱 "
