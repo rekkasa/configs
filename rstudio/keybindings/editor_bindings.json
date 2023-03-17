@@ -1,0 +1,17 @@
+{
+    "gotolineend": "Cmd+Right|End|",
+    "gotoright": "Right|",
+    "selecttolineend": "Shift+Cmd+Right|",
+    "centerselection": "",
+    "expandToMatching": "||Ctrl+Shift+M",
+    "gotopagedown": "PageDown|",
+    "golineup": "Up|",
+    "openCommandPallete": "",
+    "removetolineend": "|Cmd+Delete",
+    "selectdown": "Shift+Down|",
+    "selectup": "Shift+Up|",
+    "selectlineend": "",
+    "selecttolinestart": "Shift+Cmd+Left|",
+    "selecttomatching": "",
+    "touppercase": ""
+}

@@ -1,0 +1,16 @@
+{
+    "switchFocusSourceConsole": "Ctrl+W Ctrl+W",
+    "closeSourceDoc": "",
+    "insertPipeOperator": "Ctrl+Space",
+    "insertAssignmentOperator": "Ctrl+Shift+Space",
+    "activateTerminal": "Ctrl+T Ctrl+T",
+    "insertSnippet": "",
+    "focusNextPane": "Ctrl+Right",
+    "focusPreviousPane": "Ctrl+Left",
+    "previewJS": "",
+    "previewSql": "",
+    "expandToMatching": "Ctrl+Shift+M|",
+    "executeFromCurrentLine": "",
+    "extractLocalVariable": "",
+    "goToFileFunction": "Ctrl+/"
+}
