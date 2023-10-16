@@ -256,6 +256,11 @@ keys = [
       lazy.spawn("make-thesis"),
       desc="Build PhD thesis"
     ),
+    Key(
+      [mod], "m", 
+      lazy.spawn("launch-ica"),
+      desc="Launch citrix workspace"
+    ),
 ]
 
 # groups = [Group(i) for i in "123456789"]

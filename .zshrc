@@ -1,6 +1,6 @@
-export PATH="$PATH:$HOME/bin:$HOME/scripts:$HOME/.local/bin:/usr/sbin"
+export PATH="$PATH:$HOME/bin:$HOME/scripts:$HOME/.local/bin:/usr/sbin:/snap/bin/"
 export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
-XDG_DATA_DIRS=/usr/share/:/usr/local/share/:/var/lib/snapd/desktop
+XDG_DATA_DIRS=/usr/share/:/usr/local/share/:/var/lib/snapd/desktop/
 
 # Created by newuser for 5.8
 autoload -U colors && colors
@@ -29,7 +29,7 @@ alias rr="open *.Rproj"
 alias f="feh -F"
 alias rb="R CMD INSTALL --preclean --no-multiarch --with-keep.source"
 alias cat="batcat --theme='OneHalfLight'"
-alias v="nvim"
+alias v="~/Documents/appimages/nvim.appimage"
 alias sq="source /home/arekkas/src/qtile/venv/bin/activate && startx"
 
 # ---- Git ----

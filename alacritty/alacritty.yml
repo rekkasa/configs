@@ -3,8 +3,8 @@
 #======================================================
 font:
   normal:
-    family: DejaVu Sans Mono Nerd Font
-  size: 8
+    family: CaskaydiaCove Nerd Font
+  size: 10
 schemes:
   pencil_dark: &pencil_dark
     primary:

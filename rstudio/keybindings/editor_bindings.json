@@ -3,7 +3,7 @@
     "gotoright": "Right|",
     "selecttolineend": "Shift+Cmd+Right|",
     "centerselection": "",
-    "expandToMatching": "||Ctrl+Shift+M",
+    "expandToMatching": "||",
     "gotopagedown": "PageDown|",
     "golineup": "Up|",
     "openCommandPallete": "",
@@ -13,5 +13,10 @@
     "selectlineend": "",
     "selecttolinestart": "Shift+Cmd+Left|",
     "selecttomatching": "",
-    "touppercase": ""
+    "touppercase": "",
+    "gotowordleft": "",
+    "gotoleft": "Left|",
+    "selectOrFindPrevious": "",
+    "selectleft": "Shift+Left|",
+    "selectwordleft": ""
 }

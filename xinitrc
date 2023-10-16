@@ -1,7 +1,8 @@
 # compton --config $HOME/.config/compton.conf &
-xrandr --output eDP-1 --mode 1920x1080
+# xrandr --output eDP-1 --mode 1920x1080
 # picom --experimental-backends --config $HOME/.config/picom/picom.conf &
 # ~/src/picom/build/src/picom --experimental-backends --animations --animation-for-open-window zoom --animation-stiffness 400 --corner-radius 0.5 &
+rm ~/Downloads/*.ica &
 pcmanfm -d &
 # background-loop &
 feh --bg-scale $HOME/wallpaper &
