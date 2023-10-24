@@ -3,115 +3,16 @@
 #======================================================
 font:
   normal:
-    family: CaskaydiaCove Nerd Font
+    family: Code New Roman Nerd Font
   size: 10
 schemes:
-  pencil_dark: &pencil_dark
-    primary:
-      background: '0x212121'
-      foreground: '0xf1f1f1'
-    normal:
-      black:   '0x212121'
-      red:     '0xc30771'
-      green:   '0x10a778'
-      yellow:  '0xa89c14'
-      blue:    '0x008ec4'
-      magenta: '0x523c79'
-      cyan:    '0x20a5ba'
-      white:   '0xe0e0e0'
-    bright:
-      black:   '0x818181'
-      red:     '0xfb007a'
-      green:   '0x5fd7af'
-      yellow:  '0xf3e430'
-      blue:    '0x20bbfc'
-      magenta: '0x6855de'
-      cyan:    '0x4fb8cc'
-      white:   '0xf1f1f1'
-  dracula: &dracula
-    primary:
-      background: '#282a36'
-      foreground: '#f8f8f2'
-    cursor:
-      text: CellBackground
-      cursor: CellForeground
-    vi_mode_cursor:
-      text: CellBackground
-      cursor: CellForeground
-    search:
-      matches:
-        foreground: '#44475a'
-        background: '#50fa7b'
-      focused_match:
-        foreground: '#44475a'
-        background: '#ffb86c'
-      bar:
-        background: '#282a36'
-        foreground: '#f8f8f2'
-    line_indicator:
-      foreground: None
-      background: None
-    selection:
-      text: CellForeground
-      background: '#44475a'
-    normal:
-      black:   '#000000'
-      red:     '#ff5555'
-      green:   '#50fa7b'
-      yellow:  '#f1fa8c'
-      blue:    '#bd93f9'
-      magenta: '#ff79c6'
-      cyan:    '#8be9fd'
-      white:   '#bfbfbf'
-    bright:
-      black:   '#4d4d4d'
-      red:     '#ff6e67'
-      green:   '#5af78e'
-      yellow:  '#f4f99d'
-      blue:    '#caa9fa'
-      magenta: '#ff92d0'
-      cyan:    '#9aedfe'
-      white:   '#e6e6e6'
-    dim:
-      black:   '#14151b'
-      red:     '#ff2222'
-      green:   '#1ef956'
-      yellow:  '#ebf85b'
-      blue:    '#4d5b86'
-      magenta: '#ff46b0'
-      cyan:    '#59dffc'
-      white:   '#e6e6d1'
-
-  nord: &nord
-    primary:
-      background: '#2E3440'
-      foreground: '#D8DEE9'
-    normal:
-      black:   '#3B4252'
-      red:     '#BF616A'
-      green:   '#A3BE8C'
-      yellow:  '#EBCB8B'
-      blue:    '#81A1C1'
-      magenta: '#B48EAD'
-      cyan:    '#88C0D0'
-      white:   '#E5E9F0'
-    bright:
-      black:   '#4C566A'
-      red:     '#BF616A'
-      green:   '#A3BE8C'
-      yellow:  '#EBCB8B'
-      blue:    '#81A1C1'
-      magenta: '#B48EAD'
-      cyan:    '#8FBCBB'
-      white:   '#ECEFF4'
   night_owlish_light: &night_owlish_light
     primary:
-      background: '#F5F5F9'
-      foreground: '#403f53'
+      foreground: '#000000'
+      background: '#FFFFFF'
     bright:
       black: '#7a8181'
-      blue: '#5ca7e4'
-      cyan: '#00c990'
+      cyan: '#2383d1'
       green: '#49d0c5'
       magenta: '#697098'
       red: '#f76e6e'
@@ -122,8 +23,8 @@ schemes:
       text: '#fbfbfb'
     normal:
       black: '#011627'
-      blue: '#4876d6'
-      cyan: '#08916a'
+      blue: '#336FD8'
+      cyan: '#2383d1'
       green: '#2aa298'
       magenta: '#403f53'
       red: '#d3423e'

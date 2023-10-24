@@ -173,7 +173,7 @@ keys = [
     ),
     Key(
       [mod], "space", 
-      lazy.spawn("/home/arekkas/.config/rofi/launchers/type-1/launcher.sh"),
+      lazy.spawn("rofi -show drun -theme ar-simple-light-green -icon-theme 'Papirus' -show-icons"),
       desc="Spawn a command using a prompt widget"
     ),
     Key(

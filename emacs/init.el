@@ -1,3 +1,5 @@
+(load-file "/home/arekkas/configs/emacs/helper.el")
+
 (setq locale-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
@@ -30,24 +32,16 @@
 
 (setq-default fill-column 80)
 
-;; Window resizing
-(global-set-key (kbd "<C-up>") 'shrink-window)
-(global-set-key (kbd "<C-down>") 'enlarge-window)
-(global-set-key (kbd "<C-left>") 'shrink-window-horizontally)
-(global-set-key (kbd "<C-right>") 'enlarge-window-horizontally)
-
-;; Quit command with escape
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
-
 ;; Font settings
-(set-face-attribute 'default nil :font"CaskaydiaCove Nerd Font" :height 120)
+(set-face-attribute 'default nil :font"Code New Roman Nerd Font" :height 120)
 
 
 ;; Initialize package sources
 (require 'package)
-(setq package-archives '(("melpa" . "https://melpa.org/packages/")
-			 ("org" . "https://orgmode.org/elpa/")
-			 ))
+(setq package-archives '(
+                         ("gnu" . "https://elpa.gnu.org/packages/")
+                         ("melpa" . "https://melpa.org/packages/")
+                         ("org" . "https://orgmode.org/elpa/")))
 
 (package-initialize)
 (unless package-archive-contents
@@ -102,7 +96,10 @@
 
 (use-package doom-themes)
 
-(load-theme 'doom-tomorrow-day t)
+;; (load-theme 'doom-tomorrow-day t)
+(add-to-list 'default-frame-alist '(foreground-color . "#000000"))
+(add-to-list 'default-frame-alist '(background-color . "#FFFFFF"))
+
 
 ;; Line numbers
 (column-number-mode)
@@ -354,3 +351,24 @@
   :hook (python-mode . (lambda ()
                           (require 'lsp-pyright)
                           (lsp-deferred))))  ; or lsp-deferred
+
+
+;; ------------------------------------------------------------------------------------------------
+;;                                             Keybindings
+;; ------------------------------------------------------------------------------------------------
+;; Window resizing
+(global-set-key (kbd "<C-up>") 'shrink-window)
+(global-set-key (kbd "<C-down>") 'enlarge-window)
+(global-set-key (kbd "<C-left>") 'shrink-window-horizontally)
+(global-set-key (kbd "<C-right>") 'enlarge-window-horizontally)
+
+;; Custom shortcuts
+(global-set-key (kbd "C-c i q") 'surround-quote)
+(global-set-key (kbd "C-c i b") 'surround-bracket)
+(global-set-key (kbd "C-c b s") 'bookmark-set)
+(global-set-key (kbd "C-c b j") 'bookmark-jump)
+(global-set-key (kbd "C-c b d") 'bookmark-delete)
+(global-set-key (kbd "C-c t w") 'whitespace-mode)
+(global-set-key (kbd "C-c t c") 'company-mode)
+
+;;; init.el ends here
