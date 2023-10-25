@@ -288,6 +288,7 @@
   :commands (markdown-mode gfm-mode)
   :mode (("README\\.md\\'" . gfm-mode)
          ("\\.md\\'" . markdown-mode)
+         ("\\.qmd\\'" . markdown-mode)
          ("\\.rmd\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown")
@@ -370,5 +371,6 @@
 (global-set-key (kbd "C-c b d") 'bookmark-delete)
 (global-set-key (kbd "C-c t w") 'whitespace-mode)
 (global-set-key (kbd "C-c t c") 'company-mode)
+(global-set-key (kbd "C-c t a") 'auto-fill-mode)
 
 ;;; init.el ends here
