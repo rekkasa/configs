@@ -14,6 +14,7 @@ dunst &
 # syncthing &
 # exec slstatus &
 # exec dwm
+xrandr --output eDP-1 --mode 1920x1080 &
 xrdb ~/.Xresources &
 qtile start
 # exec dwm

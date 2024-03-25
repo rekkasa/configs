@@ -201,37 +201,6 @@
 ;; Set theme
 
 
-(use-package ess
-  :ensure t
-  :config
-  (setq ess-R-font-lock-keywords
-      '((ess-R-fl-keyword:keywords   . t)
-        (ess-R-fl-keyword:constants  . t)
-        (ess-R-fl-keyword:modifiers  . t)
-        (ess-R-fl-keyword:numbers    . t)
-        (ess-R-fl-keyword:fun-defs   . t)
-        (ess-R-fl-keyword:assign-ops . t)
-        (ess-R-fl-keyword:%op%       . t)
-        (ess-fl-keyword:fun-calls    . t)
-        (ess-fl-keyword:operators . t)
-        (ess-fl-keyword:delimiters)
-        (ess-fl-keyword:=)
-        (ess-R-fl-keyword:F&T))))
-
-(setq ess-use-flymake nil)
-(use-package flycheck
-  :ensure t
-  :init
-  (global-flycheck-mode t))
-
-;; Open Rdired buffer with F9:
-(add-hook 'ess-r-mode-hook
-	  '(lambda ()
-	     (local-set-key (kbd "<f9>") #'ess-rdired)))
-;; Close Rdired buffer with F9 as well:
-(add-hook 'ess-rdired-mode-hook
-	  '(lambda ()
-	     (local-set-key (kbd "<f9>") #'kill-buffer-and-window)))
 
 (setq display-buffer-alist
       '(("*R Dired"
@@ -329,16 +298,16 @@
 ;; if spinner cannot install need to clone from github (https://github.com/Malabarba/spinner.el)
 ;; and install manually M-x package-install-file and navigate to cloned .el file
 ;; For R language server, we need install.packages("languageserver")
-(use-package lsp-mode
-  :ensure t
-  :commands (lsp lsp-deferred)
-  :init
-  (setq lsp-keymap-prefix "C-c l")
-  :config
-  (lsp-enable-which-key-integration t)
-  :hook ((ess-r-mode . lsp)
-     (lsp-mode . lsp-enable-which-key-integration))
-  )
+;; (use-package lsp-mode
+;;   :ensure t
+;;   :commands (lsp lsp-deferred)
+;;   :init
+;;   (setq lsp-keymap-prefix "C-c l")
+;;   :config
+;;   (lsp-enable-which-key-integration t)
+;;   :hook ((ess-r-mode . lsp)
+;;      (lsp-mode . lsp-enable-which-key-integration))
+;;   )
 
 ;; ------------------------------------------------------------------------------------------------
 ;;                                               python-mode
@@ -372,5 +341,6 @@
 (global-set-key (kbd "C-c t w") 'whitespace-mode)
 (global-set-key (kbd "C-c t c") 'company-mode)
 (global-set-key (kbd "C-c t a") 'auto-fill-mode)
+(global-set-key (kbd "C-c r q") 'ar-quarto-render)
 
 ;;; init.el ends here

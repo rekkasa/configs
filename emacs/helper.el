@@ -29,4 +29,11 @@
     (shell-command (format "format-r-file %s" ar-buffer-file-name))
     (revert-buffer :ignore-auto :noconfirm)))
 
+(defun ar-quarto-render ()
+  "Test."
+  (interactive)
+  (let (ar-buffer-file-name)
+    (setq ar-buffer-file-name buffer-file-name)
+    (call-process-shell-command (format "quarto render %s" ar-buffer-file-name))))
+
 ;;; helper.el ends here

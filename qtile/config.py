@@ -136,7 +136,7 @@ keys = [
     ),
     Key(
       [mod], "w", 
-      lazy.spawn("brave"), 
+      lazy.spawn("brave-browser"), 
       desc="Launch Brave browser"
     ),
     Key(
@@ -173,7 +173,7 @@ keys = [
     ),
     Key(
       [mod], "space", 
-      lazy.spawn("rofi -show drun -theme ar-simple-light-green -icon-theme 'Papirus' -show-icons"),
+      lazy.spawn("rofi -show combi -combi-modes 'drun'  -icon-theme 'Papirus' -show-icons"),
       desc="Spawn a command using a prompt widget"
     ),
     Key(
@@ -367,16 +367,16 @@ screens = [
                     linewidth=0,
                     padding=8
                 ),
-                # widget.Battery(
-                #     font="DejaVu Sans Mono Bold",
-                #     fontsize=14,
-                #     foreground=colors[0],
-                #     format='Battery: {percent:2.0%} [ {char} ]',
-                #     discharge_char="discharing",
-                #     charge_char = "charging",
-                #     update_interval = 10,
-                #     hide_threshold = 1.0
-                # ),
+                widget.Battery(
+                    font="DejaVu Sans Mono Bold",
+                    fontsize=14,
+                    foreground=colors[0],
+                    format='Battery: {percent:2.0%} [ {char} ]',
+                    discharge_char="discharing",
+                    charge_char = "charging",
+                    update_interval = 10,
+                    hide_threshold = 1.0
+                ),
                 # widget.ThermalSensor(),
                 widget.Clock(
                     font="DejaVu Sans Mono Bold",

@@ -44,12 +44,16 @@ alias gco="git checkout"
 alias gl="git log -n 5 --oneline"
 
 # ---- Projects ----
+alias pp="cd ~/Documents/projects"
 alias fr="cd ~/Documents/Projects/arekkas_HteFramework_XXXX_2021"
 alias sim="cd ~/Documents/Projects/arekkas_HteSimulation_XXXX_2021"
 alias legend="cd ~/Documents/Projects/arekkas_LegendHte_XXXX_2021"
 alias ter="cd ~/Documents/Projects/arekkas_TerVsBis_XXXX_2021"
 alias obs="cd ~/Documents/Projects/HteSimulationObservational_SETUP"
 alias tt="killall teams && teams"
+
+# ---- Django ----
+alias da="django-admin"
 
 ##### END ALIASES ####
 
