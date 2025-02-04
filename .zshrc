@@ -1,6 +1,7 @@
 export PATH="$PATH:$HOME/bin:$HOME/scripts:$HOME/.local/bin:/usr/sbin:/snap/bin/"
 export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
-XDG_DATA_DIRS=/usr/share/:/usr/local/share/:/var/lib/snapd/desktop/
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+# XDG_DATA_DIRS=/usr/share/:/usr/local/share/:/var/lib/snapd/desktop/
 
 # Created by newuser for 5.8
 autoload -U colors && colors
@@ -29,7 +30,8 @@ alias rr="open *.Rproj"
 alias f="feh -F"
 alias rb="R CMD INSTALL --preclean --no-multiarch --with-keep.source"
 alias cat="batcat --theme='OneHalfLight'"
-alias v="~/Documents/appimages/nvim.appimage"
+alias v="nvim"
+alias vv="nvim ."
 alias sq="source /home/arekkas/src/qtile/venv/bin/activate && startx"
 
 # ---- Git ----
@@ -44,16 +46,21 @@ alias gco="git checkout"
 alias gl="git log -n 5 --oneline"
 
 # ---- Projects ----
-alias pp="cd ~/Documents/projects"
-alias fr="cd ~/Documents/Projects/arekkas_HteFramework_XXXX_2021"
-alias sim="cd ~/Documents/Projects/arekkas_HteSimulation_XXXX_2021"
-alias legend="cd ~/Documents/Projects/arekkas_LegendHte_XXXX_2021"
-alias ter="cd ~/Documents/Projects/arekkas_TerVsBis_XXXX_2021"
-alias obs="cd ~/Documents/Projects/HteSimulationObservational_SETUP"
-alias tt="killall teams && teams"
+alias her="cd ~/Documents/projects/Erevnw-Kainotomw/heracles"
 
 # ---- Django ----
-alias da="django-admin"
+alias pmmm="python3 ./manage.py makemigrations"
+alias pmm="python3 ./manage.py migrate"
+alias pmcs="python3 ./manage.py createsuperuser"
+alias pmrs="python3 ./manage.py runserver"
+
+# ---- tmux ----
+alias tt='tmux new-session -s'
+alias tat='tmux a -t'
+
+# ---- quarto ----
+alias qr="quarto render"
+alias qp="quarto publish gh-pages"
 
 ##### END ALIASES ####
 

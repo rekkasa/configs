@@ -127,7 +127,7 @@ keys = [
     Key(
       [mod, "shift"], "space", 
       lazy.layout.toggle_split(),
-      desc="Toggle between split and unsplit sides of stack"
+      desc="Toggle between split andunsplit sides of stack"
     ),
     Key(
       [mod, "shift"], "Return", 
@@ -136,7 +136,7 @@ keys = [
     ),
     Key(
       [mod], "w", 
-      lazy.spawn("brave-browser"), 
+      lazy.spawn("brave"), 
       desc="Launch Brave browser"
     ),
     Key(
@@ -145,7 +145,7 @@ keys = [
       desc="Change background wallpaper"
     ),
     Key(
-      [mod], "F1", 
+      [mod], "BackSpace", 
       lazy.spawn("change-keyboard-layout"), 
       desc="Change keyboard language"
     ),
@@ -173,7 +173,7 @@ keys = [
     ),
     Key(
       [mod], "space", 
-      lazy.spawn("rofi -show combi -combi-modes 'drun'  -icon-theme 'Papirus' -show-icons"),
+      lazy.spawn("rofi -show drun -icon-theme 'Papirus' -show-icons"),
       desc="Spawn a command using a prompt widget"
     ),
     Key(
@@ -217,9 +217,9 @@ keys = [
       desc="Switch to previous screen"
     ),
     Key(
-      [mod], "g", 
-      lazy.spawn("google-search"),
-      desc="Switch to previous screen"
+      [mod], "f", 
+      lazy.spawn("nautilus"),
+      desc="Open nautilus file manager"
     ),
     Key(
       [mod], "u", 
@@ -248,7 +248,7 @@ keys = [
     ),
     Key(
       [mod], "t", 
-      lazy.spawn("gtk-launch brave-cifhbcnohmdccbgoicgdjpfamggdegmo-Default.desktop"),
+      lazy.spawn("brave --app=https://teams.microsoft.com"),
       desc="Launches MS Teams"
     ),
     Key(
@@ -274,7 +274,8 @@ groups = [
     Group(name = "6", label = ""),
     Group(name = "7", label = ""),
     Group(name = "8", label = ""),
-    Group(name = "9", label = ""),
+    Group(name = "9", label = ""),
+    Group(name = "0", label = ""),
 ]
 
 # Scratchpad
@@ -367,16 +368,16 @@ screens = [
                     linewidth=0,
                     padding=8
                 ),
-                widget.Battery(
-                    font="DejaVu Sans Mono Bold",
-                    fontsize=14,
-                    foreground=colors[0],
-                    format='Battery: {percent:2.0%} [ {char} ]',
-                    discharge_char="discharing",
-                    charge_char = "charging",
-                    update_interval = 10,
-                    hide_threshold = 1.0
-                ),
+                # widget.Battery(
+                #     font="DejaVu Sans Mono Bold",
+                #     fontsize=14,
+                #     foreground=colors[0],
+                #     format='Battery: {percent:2.0%} [ {char} ]',
+                #     discharge_char="discharing",
+                #     charge_char = "charging",
+                #     update_interval = 10,
+                #     hide_threshold = 1.0
+                # ),
                 # widget.ThermalSensor(),
                 widget.Clock(
                     font="DejaVu Sans Mono Bold",
@@ -573,4 +574,4 @@ def move_program_to_group(window):
     wm_class = window.window.get_wm_class()[0] 
     window.togroup(window_groups[wm_class])
 
-wmname = "LG3D"
+wmname = "LG3D" 
