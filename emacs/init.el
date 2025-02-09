@@ -40,6 +40,11 @@
 (set-fringe-mode 10)
 (menu-bar-mode -1)
 (setq visible-bell t)
+(setq display-line-numbers-type 'relative)
+(setq-default fill-column 120)
+(setq inihibit-startup-message t)
+
+(global-set-key (kbd "M-b") 'switch-to-buffer)
 
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
@@ -51,15 +56,28 @@
 (global-display-line-numbers-mode t)
 (set-face-attribute 'default nil
                     :font"FiraCode Nerd Font Mono"
-                    :height 140)
-
-(setq display-line-numbers-type 'relative)
+                    :height 130)
 
 
-(setq-default fill-column 120)
+(defun my/toggle-vterm ()
+  "Toggle between vterm and the previous buffer."
+  (interactive)
+  (if (derived-mode-p 'vterm-mode)
+      (switch-to-prev-buffer)  
+    (vterm)))
 
-(setq inihibit-startup-message t
-      visible-bell t)
+(global-set-key (kbd "C-c t") 'my/toggle-vterm)
+
+(add-to-list 'display-buffer-alist
+             '("\\*vterm\\*"                     ;; Match ESS R process buffer
+               (display-buffer-reuse-window   ;; Try to reuse an existing window
+                display-buffer-in-side-window)
+               (side . bottom)                ;; Place it at the bottom
+               (slot . 0)                     ;; First in the bottom slot
+               (window-height . 0.3)))        ;; Set height to 30% of the frame
+
+(use-package vterm
+  :ensure t)
 
 (use-package emacs :ensure nil :config (setq ring-bell-function #'ignore))
 
@@ -91,10 +109,6 @@
   :config
   (evil-collection-init))
 
-(use-package all-the-icons-dired
-  :if (display-graphic-p)
-  :hook (dired-mode . all-the-icons-dired-mode))
-
 (use-package doom-modeline
   :ensure t
   :demand t
@@ -108,27 +122,23 @@
 (add-to-list 'default-frame-alist '(foreground-color . "#000000"))
 (add-to-list 'default-frame-alist '(background-color . "#FFFFFF"))
 
-(use-package swiper
-  :ensure t)
-
-(use-package ivy
+(use-package vertico
   :ensure t
-  :diminish
-  :bind (("C-s" . swiper)
-         :map ivy-minibuffer-map
-         ("TAB" . ivy-alt-done)
-         ("C-l" . ivy-alt-done)
-         ("C-j" . ivy-next-line)
-         ("C-k" . ivy-previous-line)
-         :map ivy-switch-buffer-map
-         ("C-k" . ivy-previous-line)
-         ("C-l" . ivy-done)
-         ("C-d" . ivy-switch-buffer-kill)
-         :map ivy-reverse-i-search-map
-         ("C-k" . ivy-previous-line)
-         ("C-d" . ivy-reverse-i-search-kill))
-  :config
-  (ivy-mode 1))
+  :init
+  (vertico-mode)
+  :custom
+  (vertico-cycle t))
+
+(use-package marginalia
+  :ensure t
+  :init
+  (marginalia-mode))
+
+(use-package consult
+  :ensure t
+  :bind (("C-c l" . consult-line)
+         ("C-c m" . consult-imenu)
+         ("C-c b" . consult-buffer)))
 
 ;; Parentheses delimiter
 (use-package rainbow-delimiters
@@ -140,21 +150,7 @@
   :init (which-key-mode)
   :diminish
   :config
-  (setq which-key-idle-delay 0.3))
-
-(use-package ivy-rich
-  :ensure t
-  :init
-  (ivy-rich-mode 1))
-
-(use-package counsel
-  :ensure t
-  :bind
-  (("M-x" . counsel-M-x)
-   ("C-x b" . counsel-ibuffer)
-   ("C-x C-f" . counsel-find-file)
-   :map minibuffer-local-map
-   ("C-r" . 'counsel-minibuffer-history)))
+  (setq which-key-idle-delay 0.1))
 
 ; Parentheses
 (use-package highlight-parentheses
@@ -173,8 +169,6 @@
   :config (add-hook 'prog-mode-hook 'highlight-indent-guides-mode))
 (setq highlight-indent-guides-method 'character)
 
-(use-package all-the-icons
-  :ensure t)
 
 (use-package treemacs
   :ensure t
@@ -219,11 +213,15 @@
          (python-mode . company-mode))
   :mode (("\\.py\\'" . python-mode)))
 
-(use-package ess
+  (use-package ess
   :ensure t
   :init (require 'ess-site)
   :config
-  (setq ess-indent-offset 2))
+  (setq ess-indent-offset 2)
+  :bind (:map ess-r-mode-map
+              ("C-SPC" . (lambda () (interactive) (insert " |> ")))
+         :map ess-r-mode-map
+              ("C-S-SPC" . (lambda () (interactive) (insert " <- ")))))
 
 (use-package eglot
   :ensure t
@@ -233,6 +231,24 @@
                '(ess-r-mode . ("R" "--slave" "-e" "languageserver::run()")))
   (setq ess-style 'RStudio))
 
+(add-to-list 'display-buffer-alist
+             '("\\*R\\*"                     ;; Match ESS R process buffer
+               (display-buffer-reuse-window   ;; Try to reuse an existing window
+                display-buffer-in-side-window)
+               (side . bottom)                ;; Place it at the bottom
+               (slot . 0)                     ;; First in the bottom slot
+               (window-height . 0.3)))        ;; Set height to 30% of the frame
+
+(defun my/toggle-r-console ()
+  "Toggle between the *R* process buffer and the previous buffer."
+  (interactive)
+  (if (string= (buffer-name) "*R*")
+      (switch-to-prev-buffer)  ;; If in *R*, go back to the last buffer
+    (if (get-buffer "*R*")
+        (pop-to-buffer "*R*")  ;; If *R* exists, switch to it
+      (R))))                    ;; Otherwise, start R
+
+(global-set-key (kbd "C-c r") 'my/toggle-r-console)
 
 ;;; LSP-mode
 
@@ -250,5 +266,3 @@
   (setq company-idle-delay 0.1
         company-minimum-prefix-length 1)
   :hook (prog-mode . company-mode))
-
-
