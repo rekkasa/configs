@@ -56,7 +56,7 @@
 (global-display-line-numbers-mode t)
 (set-face-attribute 'default nil
                     :font"FiraCode Nerd Font Mono"
-                    :height 130)
+                    :height 110)
 
 
 (defun my/toggle-vterm ()
@@ -134,11 +134,11 @@
   :init
   (marginalia-mode))
 
-(use-package consult
-  :ensure t
-  :bind (("C-c l" . consult-line)
-         ("C-c m" . consult-imenu)
-         ("C-c b" . consult-buffer)))
+;; (use-package consult
+;;   :ensure t
+;;   :bind (("C-c l" . consult-line)
+;;          ("C-c m" . consult-imenu)
+;;          ("C-c b" . consult-buffer)))
 
 ;; Parentheses delimiter
 (use-package rainbow-delimiters
@@ -208,10 +208,10 @@
         ))
 
 (use-package python-mode
-  :ensure t
-  :hook ((python-mode . eglot-ensure)
-         (python-mode . company-mode))
-  :mode (("\\.py\\'" . python-mode)))
+  :ensure t)
+;;  :hook ((python-mode . eglot-ensure)
+;;         (python-mode . company-mode))
+;;  :mode (("\\.py\\'" . python-mode)))
 
   (use-package ess
   :ensure t
@@ -228,7 +228,9 @@
   :hook ((ess-r-mode . eglot-ensure))  ;; Automatically enable Eglot in R buffers
   :config
   (add-to-list 'eglot-server-programs
-               '(ess-r-mode . ("R" "--slave" "-e" "languageserver::run()")))
+               '(ess-r-mode . ("R" "--no-init-file" "--slave" "-e" "languageserver::run()")))
+  (add-to-list 'eglot-server-programs
+               `(python-mode . ("/snap/bin/pyright-langserver" "--stdio")))
   (setq ess-style 'RStudio))
 
 (add-to-list 'display-buffer-alist
