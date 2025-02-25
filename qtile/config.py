@@ -203,7 +203,7 @@ keys = [
     ),
     Key(
       [mod], "e", 
-      lazy.spawn("emacsclient -c -a 'emacs'"),
+      lazy.spawn("/snap/bin/emacs"),
       desc="Spawn an emacs client"
     ),
     Key(
