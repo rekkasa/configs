@@ -135,9 +135,9 @@ keys = [
       desc="Launch terminal"
     ),
     Key(
-      [mod], "w", 
-      lazy.spawn("brave"), 
-      desc="Launch Brave browser"
+      [mod], "w",
+      lazy.spawn("flatpak run app.zen_browser.zen"), 
+      desc="Launch zen browser"
     ),
     Key(
       [mod], "b", 
@@ -237,29 +237,39 @@ keys = [
       desc="Set the desktop background picture"
     ),
     Key(
-      [mod, "shift"], "F2", 
-      lazy.spawn("killall brave"),
-      desc="Closes brave browser"
+      [mod], "x", 
+      lazy.spawn("i3lock-fancy"),
+      desc="locks screen"
     ),
     Key(
-      [mod], "x", 
-      lazy.spawn("betterlockscreen -l blur"),
-      desc="locks screen"
+      [mod], "y", 
+      lazy.spawn("brave --app=https://youtube.com/"),
+      desc="Launches youtube"
+    ),
+    Key(
+      [mod], "m", 
+      lazy.spawn("brave --app=https://mail.certh.gr/"),
+      desc="Launches certh email"
+    ),
+    Key(
+      [mod], "g", 
+      lazy.spawn("brave --app=https://mail.google.com/"),
+      desc="Launches certh email"
+    ),
+    Key(
+      [mod], "c", 
+      lazy.spawn("brave --app=https://calendar.google.com/"),
+      desc="Launches certh email"
+    ),
+    Key(
+      [mod,], "F1", 
+      lazy.spawn("brave --app=https://chatgpt.com/"),
+      desc="Launches certh email"
     ),
     Key(
       [mod], "t", 
       lazy.spawn("brave --app=https://teams.microsoft.com"),
       desc="Launches MS Teams"
-    ),
-    Key(
-      [mod, "control"], "t", 
-      lazy.spawn("make-thesis"),
-      desc="Build PhD thesis"
-    ),
-    Key(
-      [mod], "m", 
-      lazy.spawn("launch-ica"),
-      desc="Launch citrix workspace"
     ),
 ]
 
@@ -279,30 +289,37 @@ groups = [
 ]
 
 # Scratchpad
-# groups.append(ScratchPad('scratchpad', [
-#     DropDown('term', terminal, width=0.4, height=0.5, x=0.3, y=0.2)
-# ]))
-# 
-# keys.extend([
-#     Key(
-#         [mod], "s",
-#         lazy.group['scratchpad'].dropdown_toggle('term')
-#     ),
-# ])
+groups.append(ScratchPad('scratchpad', [
+    DropDown('term', terminal, width=0.7, height=0.5, x=0.15, y=0.2, on_focus_lost_hide = False),
+    DropDown('chatgpt', 'chromium --app=https://chatgpt.com/', width=0.6, height=0.9, x=0.2, y=0.05, on_focus_lost_hide = False),
+    DropDown('keepassxc', 'keepassxc', width=0.8, height=0.8, x=0.1, y=0.05, on_focus_lost_hide = False),
+]))
 
-for i in groups:
-    keys.extend([
+keys.extend([
+    Key(
+        [mod], "Return",
+        lazy.group['scratchpad'].dropdown_toggle('term')
+    ),
+    Key(
+        [mod], "h",
+        lazy.group['scratchpad'].dropdown_toggle('chatgpt')
+    ),
+    Key(
+        [mod], "k",
+        lazy.group['scratchpad'].dropdown_toggle('keepassxc')
+    ),
+])
+
+for group in groups:
+    if not isinstance(group, ScratchPad):
+        keys.extend([
         # mod1 + letter of group = switch to group
-        Key([mod], i.name, lazy.group[i.name].toscreen(),
-            desc="Switch to group {}".format(i.name)),
+            Key([mod], group.name, lazy.group[group.name].toscreen(),
+                desc="Switch to group {}".format(group.name)),
 
-        # mod1 + shift + letter of group = switch to & move focused window to group
-        Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True),
-            desc="Switch to & move focused window to group {}".format(i.name)),
-        # Or, use below if you prefer not to switch to that group.
-        # # mod1 + shift + letter of group = move focused window to group
-        # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-        #     desc="move focused window to group {}".format(i.name)),
+            # mod1 + shift + letter of group = switch to & move focused window to group
+            Key([mod, "shift"], group.name, lazy.window.togroup(group.name, switch_group=True),
+                desc="Switch to & move focused window to group {}".format(group.name)),
     ])
 
 layout_basic={
