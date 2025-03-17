@@ -262,11 +262,6 @@ keys = [
       desc="Launches certh email"
     ),
     Key(
-      [mod,], "F1", 
-      lazy.spawn("brave --app=https://chatgpt.com/"),
-      desc="Launches certh email"
-    ),
-    Key(
       [mod], "t", 
       lazy.spawn("brave --app=https://teams.microsoft.com"),
       desc="Launches MS Teams"
@@ -293,6 +288,7 @@ groups.append(ScratchPad('scratchpad', [
     DropDown('term', terminal, width=0.7, height=0.5, x=0.15, y=0.2, on_focus_lost_hide = False),
     DropDown('chatgpt', 'chromium --app=https://chatgpt.com/', width=0.6, height=0.9, x=0.2, y=0.05, on_focus_lost_hide = False),
     DropDown('keepassxc', 'keepassxc', width=0.8, height=0.8, x=0.1, y=0.05, on_focus_lost_hide = False),
+    DropDown('blanket', 'blanket', width=0.8, height=0.8, x=0.1, y=0.05, on_focus_lost_hide = False),
 ]))
 
 keys.extend([
@@ -301,11 +297,15 @@ keys.extend([
         lazy.group['scratchpad'].dropdown_toggle('term')
     ),
     Key(
-        [mod], "h",
+        [mod], "q",
         lazy.group['scratchpad'].dropdown_toggle('chatgpt')
     ),
     Key(
-        [mod], "k",
+        [mod], "b",
+        lazy.group['scratchpad'].dropdown_toggle('blanket')
+    ),
+    Key(
+        [mod], "i",
         lazy.group['scratchpad'].dropdown_toggle('keepassxc')
     ),
 ])
@@ -581,7 +581,6 @@ def move_program_to_group(window):
         "Mail": '1',
         "microsoft teams - preview": '2',
         "skype": '2',
-        "keepassxc": '3',
         "emacs": '5',
         "qpdfview": '6',
         "libreoffice": '6',
