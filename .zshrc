@@ -1,12 +1,22 @@
+# Created by newuser for 5.9
 export PATH="$PATH:$HOME/bin:$HOME/scripts:$HOME/.local/bin:/usr/sbin:/snap/bin/"
 export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
-# XDG_DATA_DIRS=/usr/share/:/usr/local/share/:/var/lib/snapd/desktop/
+XDG_DATA_DIRS=/usr/share/:/usr/local/share/:/var/lib/snapd/desktop/
 
 # Created by newuser for 5.8
 autoload -U colors && colors
-source "$HOME/.cargo/env"
-eval "$(starship init zsh)"
+# source "$HOME/.cargo/env"
+
+# Detect if running inside Emacs eshell
+if [[ "$TERM" == "dumb" && -n "$INSIDE_EMACS" ]]; then
+  STARSHIP_DISABLED=1
+fi
+
+# Run Starship only if not in eshell
+if [[ -z "$STARSHIP_DISABLED" ]]; then
+  eval "$(starship init zsh)"
+fi
+
 
 # History
 HISTSIZE=10000000
@@ -23,15 +33,15 @@ _comp_options+=(globdots)		# Include hidden files.
 
 #### ALIASES ####
 
-alias l="exa -alh --icons --group-directories-first"
+alias l="eza -alh --icons --group-directories-first"
+# alias l="ls -lah"
 alias f="feh -F"
 alias p="qpdfview"
 alias rr="open *.Rproj"
 alias f="feh -F"
 alias rb="R CMD INSTALL --preclean --no-multiarch --with-keep.source"
 alias cat="batcat --theme='OneHalfLight'"
-alias v="nvim"
-alias vv="nvim ."
+alias v="~/Documents/appimages/nvim.appimage"
 alias sq="source /home/arekkas/src/qtile/venv/bin/activate && startx"
 
 # ---- Git ----
@@ -45,22 +55,21 @@ alias guo="git pull origin"
 alias gco="git checkout"
 alias gl="git log -n 5 --oneline"
 
+
+alias tt="tmux new-session -s"
+alias tat="tmux a -t"
+
 # ---- Projects ----
-alias her="cd ~/Documents/projects/Erevnw-Kainotomw/heracles"
+# alias pp="cd ~/Documents/projects"
+# alias fr="cd ~/Documents/Projects/arekkas_HteFramework_XXXX_2021"
+# alias sim="cd ~/Documents/Projects/arekkas_HteSimulation_XXXX_2021"
+# alias legend="cd ~/Documents/Projects/arekkas_LegendHte_XXXX_2021"
+# alias ter="cd ~/Documents/Projects/arekkas_TerVsBis_XXXX_2021"
+# alias obs="cd ~/Documents/Projects/HteSimulationObservational_SETUP"
+# alias tt="killall teams && teams"
 
 # ---- Django ----
-alias pmmm="python3 ./manage.py makemigrations"
-alias pmm="python3 ./manage.py migrate"
-alias pmcs="python3 ./manage.py createsuperuser"
-alias pmrs="python3 ./manage.py runserver"
-
-# ---- tmux ----
-alias tt='tmux new-session -s'
-alias tat='tmux a -t'
-
-# ---- quarto ----
-alias qr="quarto render"
-alias qp="quarto publish gh-pages"
+alias da="django-admin"
 
 ##### END ALIASES ####
 
@@ -74,5 +83,5 @@ export KEYTIMEOUT=1
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-source Documents/git/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
-source Documents/git/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2>/dev/null
+source .zsh/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
+source .zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2>/dev/null
